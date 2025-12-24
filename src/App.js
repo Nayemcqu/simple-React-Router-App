@@ -5,6 +5,7 @@ import HomePage from './pages/home';
 import ProductPage from './pages/Product';
 import RootLayout from './pages/Root';
 import ErrorPage from './pages/Error';
+import ProductDetailPage from './pages/ProductDetail';
 
 // const routerDefinitions=createRoutesFromElements(
 // <Route>
@@ -15,12 +16,13 @@ import ErrorPage from './pages/Error';
 
 
 const router=createBrowserRouter([
-{path:'/',
+{path:'/root',
 element:<RootLayout/>,
 errorElement:<ErrorPage/>,
 children:[
-{path:'/',element:<HomePage/>},
-{path:'/products',element:<ProductPage/>}
+{index:true,element:<HomePage/>},//  index props same as path:'/'
+{path:'products',element:<ProductPage/>},
+{path:'products/:productId',element:<ProductDetailPage/>}
 ]
 }])
 
